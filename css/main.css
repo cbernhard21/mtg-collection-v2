@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* VARIABLES */
+
+:root {
+  --title-font: 'MedievalSharp', cursive;
+  --bg-page: #e4e4e4;
+  --bg-nav: #444444;
+  --white: #eeeeee;
+  --black: #1b1b1b;
+}
+
+
+/* RESETS */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  background-color: var(--bg-page);
+  font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--title-font);
+}
+
+img {
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a:link,
+a:visited {
+  color: blue;
+  text-decoration: none;
+}
+
+
+/* UTILITIES */
+
+a.btn,
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  background-color: var(--black);
+  color: var(--white);
+}
