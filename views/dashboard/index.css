@@ -1,3 +1,18 @@
-body {
-    color: red;
+.dashboard-grid {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(10px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+section {
+    /* border: 1px solid grey; */
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 1.2rem;
+}
+
+.info-box {
+    grid-column: 1/3;
 }

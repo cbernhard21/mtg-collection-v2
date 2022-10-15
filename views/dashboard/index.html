@@ -33,7 +33,31 @@
 
 
         <main class="main">
-            <h2>Dashboard</h2>
+            
+            <div class="dashboard-grid">
+
+                <section class="info-box">
+                    <h2 class="sub-title">Welcome, UserName</h2>
+                </section>
+
+                <section class="search-box">
+                    <h2 class="sub-title">Search For Cards</h2>
+                    <form id="search-form">
+                        <input class="input" id="card-name" type="text" placeholder="Enter Card Name" />
+                        <button class="search-submit" id="search-btn">Search</button>
+                    </form>
+
+                    <div id="results-container"></div>
+                </section>
+
+                <section class="stats-box"><h2 class="sub-title">Stats</h2></section>
+                <section class="stats-box"><h2 class="sub-title">Stats</h2></section>
+                <section class="stats-box"><h2 class="sub-title">Stats</h2></section>
+
+
+            </div>
+
+
         </main>
 
 
@@ -43,7 +67,7 @@
         </aside>
 
 
-
+        <script src="index.js" type="module"></script>
     </div>
 </body>
 </html>

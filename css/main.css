@@ -78,7 +78,6 @@ SITE LAYOUT
 .header {
   grid-column: 2/-1;
   align-self: baseline;
-  border: 1px solid red;
 }
 
 .nav-container {
@@ -88,7 +87,6 @@ SITE LAYOUT
 .main {
   grid-row: 2/-1;
   grid-column: 2/3;
-  border: 1px solid tomato;
 }
 
 .aside {
@@ -102,6 +100,11 @@ COMPONENT STYLES
 *************************/
 
 /* HEADER */
+.header {
+  padding-left: 2rem;
+  background-color: var(--bg-page);
+}
+
 .header h1 {
   font-size: 5rem;
   text-align: left;
