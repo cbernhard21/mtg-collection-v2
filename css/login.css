@@ -1,0 +1,57 @@
+main {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(../images/backgrounds/bg-login-1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 3.6rem;
+    color: var(--black);
+    text-align: center;
+  }
+
+  .login-form {
+    backdrop-filter: blur(10px);
+    padding: 4rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 500px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-size: 1.8rem;
+    color: var(--white);
+    font-weight: 300;
+    margin-bottom: .5rem;
+  }
+
+  input {
+    padding: .75rem;
+    font-size: 1.6rem;
+    border-radius: 2px;
+    border: none;
+  }
+
+  .btn.login {
+    text-align: center;
+    font-size: 1.6rem;
+    transition: all .2s ease-in-out;
+  }
+
+  .login:hover {
+    background-color: #000000;
+  }

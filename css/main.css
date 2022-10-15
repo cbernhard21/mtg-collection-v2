@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
-/* VARIABLES */
+/*******************
+VARIABLES
+********************/
 
 :root {
   --title-font: 'MedievalSharp', cursive;
@@ -11,8 +13,9 @@
   --black: #1b1b1b;
 }
 
-
-/* RESETS */
+/***************** 
+RESETS 
+******************/
 
 * {
   box-sizing: border-box;
@@ -49,8 +52,9 @@ a:visited {
   text-decoration: none;
 }
 
-
-/* UTILITIES */
+/*************************
+UTILITIES 
+*************************/
 
 a.btn,
 .btn {
@@ -60,3 +64,91 @@ a.btn,
   background-color: var(--black);
   color: var(--white);
 }
+
+/*************************
+SITE LAYOUT
+*************************/
+.page-grid {
+  display: grid;
+  grid-template-columns: min-content 1fr min-content;
+  grid-template-rows: min-content 1fr;
+  min-height: 100vh;
+}
+
+.header {
+  grid-column: 2/-1;
+  align-self: baseline;
+  border: 1px solid red;
+}
+
+.nav-container {
+  grid-row: 1/3;
+}
+
+.main {
+  grid-row: 2/-1;
+  grid-column: 2/3;
+  border: 1px solid tomato;
+}
+
+.aside {
+  border: 1px solid blue;
+  grid-row: 2/3;
+  grid-column: 3/4;
+}
+
+/*************************
+COMPONENT STYLES
+*************************/
+
+/* HEADER */
+.header h1 {
+  font-size: 5rem;
+  text-align: left;
+  padding: 2rem 0;
+}
+
+/* NAV */
+.nav-container {
+  padding: 1rem;
+  background-color: var(--bg-nav);
+  height: 100%;
+}
+
+figure {
+  margin-bottom: 3rem;
+}
+
+.main-nav {
+  padding: 2rem 1rem 0 2rem;
+  text-align: right;
+}
+
+.main-nav a:link,
+.main-nav a:visited {
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.6rem;
+  color: var(--white);
+  transition: all .2s ease-in-out;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.nav-item {
+  border-bottom: 2px solid transparent;
+  transition: all .2s ease-in-out;
+  padding-left: 1rem;
+  width: 100%;
+}
+
+.nav-item:hover {
+  border-bottom: 2px solid black;
+}
+
+
+
