@@ -1,0 +1,17 @@
+.main {
+    padding: 2rem;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10px, 250px));
+    gap: 5rem;
+}
+
+.card-info-container {
+    border: 1px solid red;
+}
+
+.card-image {
+    width: 100%;
+}

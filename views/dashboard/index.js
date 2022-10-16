@@ -1,5 +1,6 @@
+'use strict'
 // HELPER FUNCTIONS IMPORTED FROM OTHER FILE
-import { searchSingleCard } from '../../js/helper.js';
+import { searchSingleCard, insert } from '../../js/helper.js';
 
 // VARIABLES FOR DASHBOARD
 const cardName = document.querySelector('#card-name');
@@ -28,8 +29,16 @@ async function renderCard(searchFunc, searchedCard, htmlContainer) {
   let card = await searchFunc(searchedCard);
   let singleCard = card.singleCard;
   let cardCount = card.cardCount;
+  let cardImage;
 
-  let cardImage = insert(singleCard.imageUrl, 's', 4);
+  //CHECK IF THERE IS AN IMAGE FROM THE RESULTS
+  //IF NOT USE A STOCK IMAGE
+  if(!singleCard.imageUrl) {
+    cardImage = '../../images/no-image.png';
+  } else {
+    cardImage = insert(singleCard.imageUrl, 's', 4);
+  }
+  
   let searchResultHtml = `
  
         <img src="${cardImage}" alt="${singleCard.name}" class="card-image" />
@@ -39,17 +48,22 @@ async function renderCard(searchFunc, searchedCard, htmlContainer) {
         </ul> -->
 
         <p class="search-card-text">There are ${cardCount} different ${searchedCard} card(s).</p>
-        <a href="/views/search" id="results-link" class="btn results-link">See All Results</a>
+        <button href="/views/search" id="results-link" class="btn results-link">See All Results</button>
     `;
   htmlContainer.innerHTML = searchResultHtml;
 
+  // LOGIC TO PASS SEARCH VALUE TO LOCAL STORAGE THEN TO THE SEARCH PAGE
   const resultsLink = document.querySelector('#results-link');
+  const searchPage = '/views/search';
   resultsLink.addEventListener('click', () => {
-    console.log('i was clicked');
+    if(!window.localStorage.getItem('cardName')){
+      window.localStorage.setItem('cardName', searchedCard);
+      window.location.href = searchPage;
+    } else {
+      window.localStorage.removeItem('cardName');
+      window.localStorage.setItem('cardName', searchedCard);
+      window.location.href = searchPage;
+    }
   });
 }
 
-// INSERT THE LETTER 'S' TO MAKE A HTTPS REQUEST FOR IMAGE (ORIGINALLY HTTP)
-function insert(mainString, insString, pos) {
-  return mainString.slice(0, pos) + insString + mainString.slice(pos);
-}

@@ -1,15 +1,10 @@
 THINGS TO WORK ON FOR THE APP
 
 ---DASHBOARD PAGE
-    -pass search value from dashboard to local storage when the view more button is pressed
     -put dummy date in the stat boxes
     -media queries for layout on large, medium, and small screens
 
 ---SEARCH PAGE
-    -get local storage search value
-    -pass value to API
-    -display results
-
     -if no local storage value is present
     -create search form 
     -display results
