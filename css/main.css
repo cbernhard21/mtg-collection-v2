@@ -7,10 +7,16 @@ VARIABLES
 
 :root {
   --title-font: 'MedievalSharp', cursive;
+  --page-font: 'Roboto', sans-serif;
   --bg-page: #e4e4e4;
   --bg-nav: #444444;
   --white: #eeeeee;
   --black: #1b1b1b;
+
+  --large-screen: 1025px;
+  --medium-screen: 770px;
+  --small-screen: 450px;
+
 }
 
 /***************** 
@@ -26,7 +32,7 @@ RESETS
 html {
   font-size: 62.5%;
   background-color: var(--bg-page);
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--page-font);
 }
 
 h1,
@@ -70,7 +76,9 @@ SITE LAYOUT
 *************************/
 .page-grid {
   display: grid;
-  grid-template-columns: min-content 1fr min-content;
+  /* ADD THIS BACK IF ADD THE ASIDE BACK IN */
+  /* grid-template-columns: min-content 1fr min-content; */
+  grid-template-columns: min-content 1fr;
   grid-template-rows: min-content 1fr;
   min-height: 100vh;
 }
