@@ -15,6 +15,7 @@ section {
 
 .sub-title {
     font-size: 3.2rem;
+    margin-bottom: 1.2rem;
 }
 
 @media screen and (max-width: 1025px) {
@@ -39,19 +40,57 @@ section {
     grid-column: 1/3;
 }
 
+form {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input {
+    width: 100%;
+    padding: 1rem;
+}
+
 .search-submit {
     background-color: var(--black);
-    color: var(--white);
-    
+    color: var(--white); 
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.search-submit:hover {
+    background-color: var(--bg-nav);
 }
 
 .card-info-container {
     display: flex;
     flex-direction: row;
+    margin-bottom: 1.8rem;
 }
 
 .card-image {
     max-width: 50%;
+}
+
+.results-link {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 1.6rem;
+    margin: 0 auto;
+    transition: all .2s ease-in-out;
+}
+
+.results-link:hover {
+    background-color: var(--bg-nav);
 }
 
 
