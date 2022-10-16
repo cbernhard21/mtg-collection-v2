@@ -1,4 +1,4 @@
-// HELPER FUNCTIONS
+// HELPER FUNCTIONS IMPORTED FROM OTHER FILE
 import { searchSingleCard } from "../../js/helper.js";
 
 // VARIABLES FOR DASHBOARD
@@ -7,23 +7,27 @@ const searchBtn = document.querySelector('#search-btn');
 const searchForm = document.querySelector('#search-form');
 const resultsContainer = document.querySelector('#results-container');
 
+// EVENT LISTENERS FOR THE DASHBOARD PAGE
+
+// EVENT LISTENER FOR THE SEARCH FORM IN CASE THE USER PRESSES THE ENTER KEY
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
-
     renderCard(searchSingleCard, cardName.value, resultsContainer)
-
-    // renderCard(searchSingleCard, cardName.value, resultsContainer);
     cardName.value = '';
 })
 
+// EVENT LISTENER FOR THE SEARCH BUTTON 
 searchBtn.addEventListener('click', (e) => {
     e.preventDefault();
     renderCard(searchSingleCard, cardName.value, resultsContainer)
     cardName.value = '';
 })
 
+
+// FUNCTIONS
 async function renderCard(searchFunc, searchedCard, htmlContainer) {
     let card = await searchFunc(searchedCard);
+    console.log(card);
     let cardImage = insert(card.imageUrl, 's', 4);
     let html = `
         <div class="card-info-container">
