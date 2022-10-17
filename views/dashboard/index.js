@@ -34,7 +34,7 @@ async function renderCard(searchFunc, searchedCard, htmlContainer) {
   //CHECK IF THERE IS AN IMAGE FROM THE RESULTS
   //IF NOT USE A STOCK IMAGE
   if(!singleCard.imageUrl) {
-    cardImage = '../../images/no-image.png';
+    cardImage = '../../images/mtg-back-card.webp';
   } else {
     cardImage = insert(singleCard.imageUrl, 's', 4);
   }

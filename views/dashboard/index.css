@@ -26,29 +26,6 @@ section {
   padding: 1.2rem;
 }
 
-.sub-title {
-  font-size: 3.2rem;
-  margin-bottom: 1.2rem;
-}
-
-@media screen and (max-width: 1025px) {
-  .sub-title {
-    font-size: 2.8rem;
-  }
-}
-
-@media screen and (max-width: 770px) {
-  .sub-title {
-    font-size: 2.4rem;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .sub-title {
-    font-size: 2rem;
-  }
-}
-
 .dashboard-text {
   font-size: 1.6rem;
   max-width: 60ch;
@@ -57,36 +34,6 @@ section {
 
 .search-box {
   overflow: hidden;
-}
-
-form {
-  position: relative;
-  margin-bottom: 1.5rem;
-}
-
-.input {
-  width: 100%;
-  padding: 1rem;
-}
-
-.search-submit {
-  background-color: var(--black);
-  color: var(--white);
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  font-size: 2rem;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-.search-submit:hover {
-  background-color: var(--bg-nav);
 }
 
 .results-container {

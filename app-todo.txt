@@ -5,9 +5,8 @@ THINGS TO WORK ON FOR THE APP
     -media queries for layout on large, medium, and small screens
 
 ---SEARCH PAGE
-    -if no local storage value is present
-    -create search form 
-    -display results
+    --style display cards
+    
 
 ---MY COLLECTION PAGE
     -add a coming soon!

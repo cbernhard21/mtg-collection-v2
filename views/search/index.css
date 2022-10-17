@@ -2,16 +2,36 @@
     padding: 2rem;
 }
 
+/* FORM SYTLES */
+form {
+    max-width: 400px;
+}
+
 .results-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10px, 250px));
+    grid-template-columns: repeat(auto-fit, minmax(10px, 275px));
     gap: 5rem;
 }
 
 .card-info-container {
-    border: 1px solid red;
+    background-color: var(--white);
+    border-radius: 5px;
 }
 
 .card-image {
     width: 100%;
+}
+
+.card-text {
+    padding: 1.5rem;
+}
+
+.card-name {
+    font-size: 1.4rem;
+    margin-bottom: .5rem;
+}
+
+.card-text p {
+    margin-bottom: .5rem;
+    font-size: 1.4rem;
 }
