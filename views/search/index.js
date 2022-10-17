@@ -77,16 +77,46 @@ async function renderResults(searchFunc, searchedCard, htmlContainer) {
                 <img src="${cardImage}" alt="${item.name}" class="card-image" />
                 <div class="card-text">
                     <h2 class="card-name">${item.name}</h2>
-                    <p>Set - ${item.setName}</p>
-                    <p>Type - ${item.type}</p>
-                    <p>Colors - ${item.colors}</p>
+                    <p><span class="bold">Set</span> - ${item.setName}</p>
+                    <p><span class="bold">Type</span> - ${item.type}</p>
+                    <p><span class="bold">Colors</span> - ${item.colors}</p>
                 </div>
+                <div class="button-container card-text">
+                    <button class="btn add">Add To Collection</button>
+                    <p class="hidden"></p>
+                </div>
+                
             </article>
         `;
         resultsHtml += cardHtml;
     });
     htmlContainer.innerHTML = resultsHtml;
-}
+
+
+    //LOGIC FOR ADD TO COLLECTION BUTTON
+
+    //STORE THAT PARTICULAR CARD'S INFORMATION
+
+    //SEND THAT INFORMATION TO THE DATABASE
+
+    //SHOW THE USER A CONFIRMATION MESSAGE
+    const addBtn = document.querySelectorAll('.add');
+    const messageContainer  = document.querySelectorAll('.button-container');
+
+    console.log(messageContainer);
+    addBtn.forEach(btn => {
+        btn.addEventListener('click', function addMessage(e) {
+            e.preventDefault();
+            const confirmMessage = 'This card was added to your collection.';
+            const noDatabase = 'Database not setup yet.  Stay tuned!'
+            const p = document.createElement('p');
+            p.textContent = `${confirmMessage} ${noDatabase}`;
+        });
+    })
+
+
+
+};
 
 
 

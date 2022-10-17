@@ -35,3 +35,18 @@ form {
     margin-bottom: .5rem;
     font-size: 1.4rem;
 }
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.button-container p {
+    background-color: rgb(172, 9, 9);
+    color: var(--white);
+    padding: .5rem;
+}
