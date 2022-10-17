@@ -6,6 +6,7 @@ THINGS TO WORK ON FOR THE APP
 
 ---SEARCH PAGE
     --style display cards
+    --finish confirm message when add to database
     
 
 ---MY COLLECTION PAGE
