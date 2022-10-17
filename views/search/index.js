@@ -1,6 +1,6 @@
 'use strict'
 
-import { searchManyCards, insert } from "../../js/helper.js";
+import { searchManyCards, insert, insertAfter } from "../../js/helper.js";
 
 //GLOBAL VARIABLES
 let cardName = '';
@@ -83,7 +83,7 @@ async function renderResults(searchFunc, searchedCard, htmlContainer) {
                 </div>
                 <div class="button-container card-text">
                     <button class="btn add">Add To Collection</button>
-                    <p class="hidden"></p>
+                    
                 </div>
                 
             </article>
@@ -101,22 +101,18 @@ async function renderResults(searchFunc, searchedCard, htmlContainer) {
 
     //SHOW THE USER A CONFIRMATION MESSAGE
     const addBtn = document.querySelectorAll('.add');
-    const messageContainer  = document.querySelectorAll('.button-container');
-
-    console.log(messageContainer);
     addBtn.forEach(btn => {
-        btn.addEventListener('click', function addMessage(e) {
-            e.preventDefault();
-            const confirmMessage = 'This card was added to your collection.';
-            const noDatabase = 'Database not setup yet.  Stay tuned!'
+        btn.addEventListener('click', (e) => {
             const p = document.createElement('p');
-            p.textContent = `${confirmMessage} ${noDatabase}`;
-        });
+            p.innerHTML = 'i hope this works';
+            const container = e.target.parentNode;
+            insertAfter(p, container.lastElementChild);
+        })
     })
 
-
-
 };
+
+
 
 
 

@@ -33,3 +33,9 @@ export async function searchManyCards(card) {
 export function insert(mainString, insString, pos) {
   return mainString.slice(0, pos) + insString + mainString.slice(pos);
 }
+
+
+//FUNCTION TO INSERT A NODE ELEMENT AFTER A SELECT ELEMENT IN A LOOP 
+export function insertAfter(newNode, existingNode) {
+  existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+}
