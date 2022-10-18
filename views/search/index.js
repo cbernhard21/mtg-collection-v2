@@ -31,6 +31,24 @@ if (window.localStorage.getItem('cardName')) {
     resultsHtml += cardHtml;
   });
   displayContainer.innerHTML = resultsHtml;
+  //LOGIC FOR THE ADD TO COLLECTION BUTTON
+  //WILL CONVERT THIS TO A FUNCTION BECAUSE IT IS BEING USED IN MULITPLE PLACES
+  //LOGIC FOR ADD TO COLLECTION BUTTON
+
+  //STORE THAT PARTICULAR CARD'S INFORMATION
+
+  //SEND THAT INFORMATION TO THE DATABASE
+
+  //SHOW THE USER A CONFIRMATION MESSAGE
+  const addBtn = document.querySelectorAll('.add');
+  addBtn.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const p = document.createElement('p');
+      p.innerHTML = 'Your Card Has Been Added To Your Collection';
+      const container = e.target.parentNode;
+      insertAfter(p, container.lastElementChild);
+    });
+  });
 }
 
 //LOGIC TO FETCH FROM THE API WHEN SEARCH IS DONE FROM THE SEARCH PAGE
@@ -54,7 +72,8 @@ searchForm.addEventListener('submit', (e) => {
   searchInput.value = '';
 });
 
-//FUNCTION TO DISPLAY DATA FROM THE API RESULTS
+//FUNCTION TO DISPLAY DATA FROM THE API RESULTS FROM THE SEARCH PAGE
+//NOT FROM THE DASHBOARD SEARCH!!!!
 async function renderResults(searchFunc, searchedCard, htmlContainer) {
   let searchResults = await searchFunc(searchedCard);
   console.log(searchResults);
