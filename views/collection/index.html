@@ -1,49 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/main.css" type="text/css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/main.css" type="text/css" />
+    <link rel="stylesheet" href="index.css" type="text/css" />
     <title>MTG Collection</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- GRID FOR THE LAYOUT OF THE PAGE -->
     <div class="page-grid">
+      <header class="header">
+        <h1>Legendary MTG Collection</h1>
+      </header>
 
-        <header class="header">
-            <h1>Legendary MTG Collection</h1>
-        </header>
+      <div class="nav-container">
+        <figure>
+          <img src="../../images/logos/mtg-logo.png" alt="Magic: The Gathering Logo" />
+        </figure>
+        <nav class="main-nav">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="/views/dashboard/">Dashboard</a></li>
+            <li class="nav-item"><a href="/views/search" id="search-link">Search</a></li>
+            <li class="nav-item"><a href="/views/collection">Collection</a></li>
+            <li class="nav-item"><a href="/views/dashboard">Profile</a></li>
+            <li class="nav-item"><a href="/">Log Out</a></li>
+          </ul>
+        </nav>
+      </div>
 
-        <div class="nav-container">
-            <figure>
-                <img src="../../images/logos/mtg-logo.png" alt="Magic: The Gathering Logo">
-            </figure>
-            <nav class="main-nav">
-                <ul class="nav-list">
-                <li class="nav-item"><a href="/views/dashboard/">Dashboard</a></li>
-                <li class="nav-item"><a href="/views/search" id="search-link">Search</a></li>
-                <li class="nav-item"><a href="/views/collection">Collection</a></li>
-                <li class="nav-item"><a href="/views/dashboard">Profile</a></li>
-                <li class="nav-item"><a href="/">Log Out</a></li>
-                </ul>
-            </nav>
-        </div>
+      <main class="main">
+        <h2 class="sub-title">My Collection</h2>
+        <h3>Collection information coming soon</h3>
+      </main>
 
+      <aside class="aside">
+        <h2>Aside</h2>
+      </aside>
 
-        <main class="main">
-            <h2>My Collection</h2>
-        </main>
-
-
-
-        <aside class="aside">
-            <h2>Aside</h2>
-        </aside>
-
-        <script src="../../js/app.js" type="moduel"></script>
-        <script src="index.js" type="module"></script>
-
+      <script src="../../js/app.js" type="moduel"></script>
+      <script src="index.js" type="module"></script>
     </div>
-</body>
+  </body>
 </html>

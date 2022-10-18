@@ -1,5 +1,8 @@
 THINGS TO WORK ON FOR THE APP
 
+--ENTIRE APP
+    -work on responsiveness
+
 ---DASHBOARD PAGE
     -put dummy date in the stat boxes
     -media queries for layout on large, medium, and small screens
@@ -10,5 +13,4 @@ THINGS TO WORK ON FOR THE APP
     
 
 ---MY COLLECTION PAGE
-    -add a coming soon!
     -research database solutions

@@ -1,35 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" type="text/css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <title>MTG Collection</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/main.css" type="text/css">
-  <link rel="stylesheet" href="css/login.css">
-  <title>MTG Collection</title>
-</head>
+  <body>
+    <main>
+      <form class="login-form">
+        <h1>Please Log In</h1>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" name="username" id="password" placeholder="Username" />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="text" name="password" id="password" placeholder="Password" />
+        </div>
 
-<body>
+        <!-- AUTH IS NOT SETUP, UNTIL IT IS THIS IS JUST A LINK TO THE DASHBOARD, USERNAME AND PASSWORD IS NOT REQUIRED!!! -->
+        <a href="views/dashboard" class="btn login">Login</a>
+        <p class="warning">Login Process Is Not Setup. Please Click the Login Button To Proceed</p>
+      </form>
+    </main>
 
-  <main>
-    <form class="login-form">
-      <h1>Please Log In</h1>
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="password" placeholder="Username">
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="text" name="password" id="password" placeholder="Password">
-      </div>
-      
-      <!-- AUTH IS NOT SETUP, UNTIL IT IS THIS IS JUST A LINK TO THE DASHBOARD, USERNAME AND PASSWORD IS NOT REQUIRED!!! -->
-      <a href="views/dashboard" class="btn login">Login</a>    
-    </form>
-  </main>
-
-  <script src="js/app.js" type="module"></script>
-</body>
-
+    <script src="js/app.js" type="module"></script>
+  </body>
 </html>
