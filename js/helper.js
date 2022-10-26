@@ -39,3 +39,13 @@ export function insert(mainString, insString, pos) {
 export function insertAfter(newNode, existingNode) {
   existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
 }
+
+//FUNCTION TO SHOW THE LOADING SPINNER
+export function showSpinner() {
+  document.querySelector('.loader').style.display = 'flex';
+}
+
+//FUNCTION TO HIDE THE LOADING SPINNER
+export function hideSpinner() {
+  document.querySelector('.loader').style.display = 'none';
+}

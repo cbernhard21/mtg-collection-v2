@@ -2,6 +2,8 @@ THINGS TO WORK ON FOR THE APP
 
 --ENTIRE APP
     -work on responsiveness
+    -nav bar for smaller screens
+    -loading spinners
 
 ---DASHBOARD PAGE
     -put dummy date in the stat boxes
@@ -10,7 +12,6 @@ THINGS TO WORK ON FOR THE APP
 ---SEARCH PAGE
     --style display cards
     --finish confirm message when add to database
-    
 
 ---MY COLLECTION PAGE
     -research database solutions
