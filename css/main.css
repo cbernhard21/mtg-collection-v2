@@ -114,6 +114,14 @@ a.btn,
 /*********************************************
 LOADING SPINNER STYLES FOR ALL PAGES
 *********************************************/
+#search-page .loader-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 400px;
+}
+
 .loader {
   width: 20em;
   height: 20em;

@@ -1,6 +1,6 @@
 'use strict';
 
-import { searchManyCards, insert, insertAfter } from '../../js/helper.js';
+import { searchManyCards, insert, insertAfter, showSpinner, hideSpinner } from '../../js/helper.js';
 
 //GLOBAL VARIABLES
 let cardName = '';
@@ -17,6 +17,7 @@ if (window.localStorage.getItem('cardName')) {
   //IF TRUE THEN GET THE VALUE
   cardName = window.localStorage.getItem('cardName');
   //RUN ANOTHER SEARCH TO THE MTG API TO GET ALL THE RESULTS
+  displayContainer.innerHTML = showSpinner();
   const allCards = await searchManyCards(cardName);
   //DISPLAY ALL RESULTS
   allCards.forEach((card) => {
@@ -30,7 +31,10 @@ if (window.localStorage.getItem('cardName')) {
 
     resultsHtml += cardHtml;
   });
-  displayContainer.innerHTML = resultsHtml;
+  displayContainer.innerHTML += resultsHtml;
+  hideSpinner();
+
+
   //LOGIC FOR THE ADD TO COLLECTION BUTTON
   //WILL CONVERT THIS TO A FUNCTION BECAUSE IT IS BEING USED IN MULITPLE PLACES
   //LOGIC FOR ADD TO COLLECTION BUTTON
@@ -57,6 +61,7 @@ searchBtn.addEventListener('click', (e) => {
   e.preventDefault();
   let searchValue = searchInput.value;
   displayContainer.innerHTML = '';
+  displayContainer.innerHTML = showSpinner();
   resultsHtml = '';
   renderResults(searchManyCards, searchValue, displayContainer);
   searchInput.value = '';
@@ -67,6 +72,7 @@ searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
   let searchValue = searchInput.value;
   displayContainer.innerHTML = '';
+  displayContainer.innerHTML = showSpinner();
   resultsHtml = '';
   renderResults(searchManyCards, searchValue, displayContainer);
   searchInput.value = '';
@@ -88,8 +94,8 @@ async function renderResults(searchFunc, searchedCard, htmlContainer) {
 
     resultsHtml += cardHtml;
   });
-  htmlContainer.innerHTML = resultsHtml;
-
+  htmlContainer.innerHTML += resultsHtml;
+  hideSpinner();
   //LOGIC FOR ADD TO COLLECTION BUTTON
 
   //STORE THAT PARTICULAR CARD'S INFORMATION
@@ -121,9 +127,7 @@ function generateCardHtml(cardImage, item) {
             </div>
             <div class="button-container card-text">
                 <button class="btn add">Add To Collection</button>
-                
             </div>
-            
         </article>
     `;
   return html;

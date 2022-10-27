@@ -27,7 +27,6 @@ export async function searchManyCards(card) {
   }
 }
 
-
 // INSERT THE LETTER 'S' TO MAKE A HTTPS REQUEST FOR IMAGE (ORIGINALLY HTTP)\
 // USED WHEN GETTING DATA BACK FROM THE MTG API
 export function insert(mainString, insString, pos) {
@@ -42,10 +41,22 @@ export function insertAfter(newNode, existingNode) {
 
 //FUNCTION TO SHOW THE LOADING SPINNER
 export function showSpinner() {
-  document.querySelector('.loader-wrapper').classList.remove('hidden');
+  const spinnerHtml = `
+    <div class="loader-wrapper">
+      <div class="loader">
+        <div class="face">
+          <div class="circle"></div>
+        </div>
+        <div class="face">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  `;
+  return spinnerHtml;
 }
 
 //FUNCTION TO HIDE THE LOADING SPINNER
 export function hideSpinner() {
-  document.querySelector('.loader-wrapper').classList.add('hidden');
+  document.querySelector('.loader-wrapper').style.display = 'none';
 }
