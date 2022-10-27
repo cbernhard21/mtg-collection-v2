@@ -21,7 +21,7 @@ searchForm.addEventListener('submit', (e) => {
 // EVENT LISTENER FOR THE SEARCH BUTTON
 searchBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  showSpinner();
+  
   renderCard(searchSingleCard, cardName.value, resultsContainer);
   cardName.value = '';
 });
@@ -33,7 +33,7 @@ async function renderCard(searchFunc, searchedCard, htmlContainer) {
   let singleCard = card.singleCard;
   let cardCount = card.cardCount;
   let cardImage;
-
+  // showSpinner();
   //CHECK IF THERE IS AN IMAGE FROM THE RESULTS
   //IF NOT USE A STOCK IMAGE
   if(!singleCard.imageUrl) {
@@ -54,8 +54,10 @@ async function renderCard(searchFunc, searchedCard, htmlContainer) {
         <button href="/views/search" id="results-link" class="btn results-link">See All Results</button>
     `;
 
-  htmlContainer.innerHTML = searchResultHtml;
-  hideSpinner();
+  
+
+    htmlContainer.innerHTML += searchResultHtml;
+    hideSpinner();
 
   // LOGIC TO PASS SEARCH VALUE TO LOCAL STORAGE THEN TO THE SEARCH PAGE
   const resultsLink = document.querySelector('#results-link');

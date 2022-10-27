@@ -119,7 +119,7 @@ LOADING SPINNER STYLES FOR ALL PAGES
   height: 20em;
   font-size: 10px;
   position: relative;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
 }

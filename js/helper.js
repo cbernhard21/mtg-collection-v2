@@ -42,10 +42,10 @@ export function insertAfter(newNode, existingNode) {
 
 //FUNCTION TO SHOW THE LOADING SPINNER
 export function showSpinner() {
-  document.querySelector('.loader').style.display = 'flex';
+  document.querySelector('.loader-wrapper').classList.remove('hidden');
 }
 
 //FUNCTION TO HIDE THE LOADING SPINNER
 export function hideSpinner() {
-  document.querySelector('.loader').style.display = 'none';
+  document.querySelector('.loader-wrapper').classList.add('hidden');
 }
