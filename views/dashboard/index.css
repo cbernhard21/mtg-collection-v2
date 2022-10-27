@@ -7,8 +7,21 @@
   padding: 2rem;
 }
 
+@media screen and (max-width: 480px) {
+  .dashboard-grid {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .info-box {
   grid-column: 1/2;
+}
+
+@media screen and (max-width: 1025px) {
+  .info-box {
+    grid-column: 1/3;
+  }
 }
 
 .search-box {
@@ -16,8 +29,21 @@
   grid-row: 1/-1;
 }
 
+@media screen and (max-width: 1025px) {
+  .search-box {
+    grid-row: 1/2;
+  }
+}
+
 .stats-box.box-1 {
   grid-column: 2/3;
+}
+
+@media screen and (max-width: 1025px) {
+  .stats-box.box-1 {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
 }
 
 section {
@@ -30,6 +56,12 @@ section {
   font-size: 1.6rem;
   max-width: 60ch;
   line-height: 1.5;
+}
+
+@media screen and (max-width: 770px) {
+  .dashboard-text {
+    font-size: 1.2rem;
+  }
 }
 
 .search-box {
@@ -56,6 +88,12 @@ section {
 
 .search-card-text {
   font-size: 2.4rem;
+}
+
+@media screen and (max-width: 770px) {
+  .search-card-text {
+    font-size: 1.6rem;
+  }
 }
 
 .results-link {

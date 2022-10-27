@@ -13,6 +13,27 @@ form {
     gap: 5rem;
 }
 
+@media screen and (max-width: 1024px) {
+    .results-grid {
+        grid-template-columns: repeat(auto-fit, minmax(10px, 225px));
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .results-grid {
+        grid-template-columns: repeat(auto-fit, minmax(10px, 175px));
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .results-grid {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
 .card-info-container {
     background-color: var(--white);
     border-radius: 5px;

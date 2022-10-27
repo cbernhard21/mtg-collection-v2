@@ -203,6 +203,7 @@ SITE LAYOUT
   grid-template-columns: min-content 1fr;
   grid-template-rows: min-content 1fr;
   min-height: 100vh;
+  position: relative;
 }
 
 .header {
@@ -233,12 +234,52 @@ COMPONENT STYLES
 .header {
   padding-left: 2rem;
   background-color: var(--bg-page);
+  position: relative;
+  /* height: 10rem; */
 }
 
 .header h1 {
   font-size: 5rem;
-  text-align: left;
   padding: 2rem 0;
+}
+
+.header figure {
+  display: none;
+}
+
+/* MEDIUM SCREENS */
+@media screen and (max-width: 770px) {
+  .header {
+    background-color: var(--bg-nav);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header h1 {
+    font-size: 3.5rem;
+    color: var(--white);
+  }
+
+  .header figure {
+    display: block;
+    width: 75px;
+    align-self: center;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+}
+
+/* SMALL SCREENS */
+@media screen and (max-width: 480px) {
+  .header h1  {
+    font-size: 2.5rem;
+    font-weight: 400;
+  }
+
+  .header figure {
+    width: 60px;
+  }
 }
 
 /* NAV */
@@ -248,8 +289,29 @@ COMPONENT STYLES
   height: 100%;
 }
 
+@media screen and (max-width: 770px) {
+  .nav-container {
+    position: fixed;
+    top: 75px;
+    left: 0;
+    width: 150px;
+    transform: translateX(-100%);
+    z-index: 1000;
+    transition: transform 0.3s ease-in;
+  }
+  .slide {
+    transform: translateX(0%);
+  }
+}
+
 figure {
   margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 770px) {
+  figure {
+    display: none;
+  }
 }
 
 .main-nav {

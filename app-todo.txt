@@ -2,16 +2,16 @@ THINGS TO WORK ON FOR THE APP
 
 --ENTIRE APP
     -work on responsiveness
-    -nav bar for smaller screens
-    -loading spinners
 
 ---DASHBOARD PAGE
-    -put dummy date in the stat boxes
-    -media queries for layout on large, medium, and small screens
+
 
 ---SEARCH PAGE
-    --style display cards
     --finish confirm message when add to database
 
 ---MY COLLECTION PAGE
     -research database solutions
+    -connect to database
+    -add cards to database
+    -retrieve cards from database
+    -delete cards from database

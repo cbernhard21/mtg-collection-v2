@@ -10,5 +10,13 @@ searchLinkNav.addEventListener('click', () => {
 });
 
 
+//NAVIGATION LOGIC FOR MEDIUM AND SMALL SCREENS
+const menuButton = document.querySelector('.header figure');
+const navContainer = document.querySelector('.nav-container');
+menuButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    navContainer.classList.toggle('slide');
+})
+
 
 
