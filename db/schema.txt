@@ -1,0 +1,3 @@
+TABLE NAME = cards
+
+id    name    cardImage   setName   type    colors

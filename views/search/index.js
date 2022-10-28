@@ -1,6 +1,7 @@
 'use strict';
 
 import { searchManyCards, insert, insertAfter, showSpinner, hideSpinner } from '../../js/helper.js';
+import { insertData } from '../../db/db.js';
 
 //GLOBAL VARIABLES
 let cardName = '';
@@ -33,7 +34,6 @@ if (window.localStorage.getItem('cardName')) {
   });
   displayContainer.innerHTML += resultsHtml;
   hideSpinner();
-
 
   //LOGIC FOR THE ADD TO COLLECTION BUTTON
   //WILL CONVERT THIS TO A FUNCTION BECAUSE IT IS BEING USED IN MULITPLE PLACES
@@ -96,12 +96,8 @@ async function renderResults(searchFunc, searchedCard, htmlContainer) {
   });
   htmlContainer.innerHTML += resultsHtml;
   hideSpinner();
-  
-  
-  
-  //LOGIC FOR ADD TO COLLECTION BUTTON
 
-  //SEND THAT INFORMATION TO THE DATABASE
+  //LOGIC FOR ADD TO COLLECTION BUTTON
 
   //SHOW THE USER A CONFIRMATION MESSAGE
   const addBtn = document.querySelectorAll('.add');
@@ -119,16 +115,19 @@ async function renderResults(searchFunc, searchedCard, htmlContainer) {
         image: container.dataset.cardImage,
         set: container.dataset.cardSet,
         type: container.dataset.cardType,
-        color: container.dataset.cardColor
-      }      
+        color: container.dataset.cardColor,
+      };
       console.log(cardForDatabase);
+
+      //SEND THAT INFORMATION TO THE DATABASE
+
+      insertData(cardForDatabase);
     });
   });
 }
 
 //FUNCTION FOR CREATING CARD INFORMATION DIV ONCE THE USER HAS SEARCHED FOR A CARD FROM THE API
 function generateCardHtml(cardImage, item) {
-  
   let html = `
         <article class="card-info-container" 
           data-card-name="${item.name}" 
@@ -149,8 +148,6 @@ function generateCardHtml(cardImage, item) {
     `;
   return html;
 }
-
-
 
 //<div class="button-container card-text">
 //<button class="btn add">Add To Collection</button>
