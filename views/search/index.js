@@ -96,9 +96,10 @@ async function renderResults(searchFunc, searchedCard, htmlContainer) {
   });
   htmlContainer.innerHTML += resultsHtml;
   hideSpinner();
+  
+  
+  
   //LOGIC FOR ADD TO COLLECTION BUTTON
-
-  //STORE THAT PARTICULAR CARD'S INFORMATION
 
   //SEND THAT INFORMATION TO THE DATABASE
 
@@ -108,16 +109,34 @@ async function renderResults(searchFunc, searchedCard, htmlContainer) {
     btn.addEventListener('click', (e) => {
       const p = document.createElement('p');
       p.innerHTML = 'Your Card Has Been Added To Your Collection';
+      p.classList.add('message');
       const container = e.target.parentNode;
       insertAfter(p, container.lastElementChild);
+
+      //STORE THIS CARD'S INFORMATION TO SEND TO DATABASE
+      let cardForDatabase = {
+        name: container.dataset.cardName,
+        image: container.dataset.cardImage,
+        set: container.dataset.cardSet,
+        type: container.dataset.cardType,
+        color: container.dataset.cardColor
+      }      
+      console.log(cardForDatabase);
     });
   });
 }
 
 //FUNCTION FOR CREATING CARD INFORMATION DIV ONCE THE USER HAS SEARCHED FOR A CARD FROM THE API
 function generateCardHtml(cardImage, item) {
+  
   let html = `
-        <article class="card-info-container">  
+        <article class="card-info-container" 
+          data-card-name="${item.name}" 
+          data-card-image="${cardImage}" 
+          data-card-set="${item.setName}" 
+          data-card-type="${item.type}" 
+          data-card-color="${item.colors}" 
+        >  
             <img src="${cardImage}" alt="${item.name}" class="card-image" />
             <div class="card-text">
                 <h2 class="card-name">${item.name}</h2>
@@ -125,10 +144,14 @@ function generateCardHtml(cardImage, item) {
                 <p><span class="bold">Type</span> - ${item.type}</p>
                 <p><span class="bold">Colors</span> - ${item.colors}</p>
             </div>
-            <div class="button-container card-text">
-                <button class="btn add">Add To Collection</button>
-            </div>
+            <button class="btn add">Add To Collection</button>   
         </article>
     `;
   return html;
 }
+
+
+
+//<div class="button-container card-text">
+//<button class="btn add">Add To Collection</button>
+//</div>

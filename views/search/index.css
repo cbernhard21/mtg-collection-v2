@@ -37,6 +37,7 @@ form {
 .card-info-container {
     background-color: var(--white);
     border-radius: 5px;
+    padding-bottom: 2rem;
 }
 
 .card-image {
@@ -66,8 +67,13 @@ form {
     margin-bottom: 1rem;
 }
 
-.button-container p {
+.message {
     background-color: rgb(172, 9, 9);
     color: var(--white);
     padding: .5rem;
+}
+
+.card-info-container button {
+    display: block;
+    margin: 0 auto;
 }
