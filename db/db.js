@@ -11,8 +11,8 @@ const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 export async function loadData() {
   const { data, error } = await db.from('cards').select();
 
-  // console.log(data);
-  // console.log(error);
+  console.log(data);
+  console.log(error);
   return data;
 }
 
@@ -40,8 +40,8 @@ export async function insertData(cardObject) {
 }
 
 //DELETE DATA FROM DATABASE
-async function deleteData() {
-  const { error } = await db.from('cards').delete().eq('id', 1);
+async function deleteData(id) {
+  const { error } = await db.from('cards').delete().eq('id', id);
 }
 
 // deleteData();

@@ -380,7 +380,77 @@ form {
 }
 
 
+/* STYLES FOR DISPLAYING MTG CARDS FROM THE DATABASE */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10px, 275px));
+  gap: 5rem;
+}
 
+@media screen and (max-width: 1024px) {
+  .results-grid {
+      grid-template-columns: repeat(auto-fit, minmax(10px, 225px));
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .results-grid {
+      grid-template-columns: repeat(auto-fit, minmax(10px, 175px));
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .results-grid {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      margin: 0 auto;
+  }
+}
+
+.card-info-container {
+  background-color: var(--white);
+  border-radius: 5px;
+  padding-bottom: 2rem;
+}
+
+.card-image {
+  width: 100%;
+}
+
+.card-text {
+  padding: 1.5rem;
+}
+
+.card-name {
+  font-size: 1.4rem;
+  margin-bottom: .5rem;
+}
+
+.card-text p {
+  margin-bottom: .5rem;
+  font-size: 1.4rem;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.message {
+  background-color: rgb(172, 9, 9);
+  color: var(--white);
+  padding: .5rem;
+}
+
+.card-info-container button {
+  display: block;
+  margin: 0 auto;
+}
 
 
 

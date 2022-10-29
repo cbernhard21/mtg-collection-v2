@@ -4,14 +4,13 @@ THINGS TO WORK ON FOR THE APP
     -work on responsiveness
 
 ---DASHBOARD PAGE
-
+    -work on the stats and charts sections
 
 ---SEARCH PAGE
     --finish confirm message when add to database
 
 ---MY COLLECTION PAGE
-    -research database solutions
-    -connect to database
-    -add cards to database
-    -retrieve cards from database
+    -connect to database - DONE
+    -add cards to database - DONE
+    -retrieve cards from database - DONE
     -delete cards from database

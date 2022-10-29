@@ -1,12 +1,14 @@
 'use strict';
 
-import { loadData, insertData } from '../../db/db.js';
+import { loadData, deleteData } from '../../db/db.js';
 
 async function renderHtml() {
+  let htmlCollectionContainer = '';
+  const resultsContainer = document.querySelector('#results-container');
   const allCollectionCards = await loadData();
 
   allCollectionCards.forEach((card) => {
-    let html = `
+    let cardHtml = `
       <article class="card-info-container" 
         data-card-id="${card.id}"
         data-card-name="${card.name}" 
@@ -22,14 +24,16 @@ async function renderHtml() {
               <p><span class="bold">Type</span> - ${card.type}</p>
               <p><span class="bold">Colors</span> - ${card.colors}</p>
           </div>
-          <button class="btn add">Add To Collection</button>   
+          <button class="btn delete">Delete From Collection</button>   
       </article>
     `;
-  });
 
-  console.log(allCollectionCards);
+    htmlCollectionContainer += cardHtml;
+  });
+  resultsContainer.innerHTML = htmlCollectionContainer;
 }
+
 
 renderHtml();
 
-// loadData();
+
