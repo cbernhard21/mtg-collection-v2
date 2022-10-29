@@ -21,8 +21,19 @@ export async function loadData() {
 //SHOW DATA ON SCREEN
 
 //ADD DATA TO DATABASE
+//PASS THE CARD OBJECT TO SEND TO THE DATABASE
 export async function insertData(cardObject) {
-  const { data, error } = await db.from('cards').insert([{ name: cardObject.name, cardImage: cardObject.image, setName: cardObject.set, type: cardObject.type, colors: cardObject.color }]);
+  const { data, error } = await db
+    .from('cards')
+    .insert([
+      {
+        name: cardObject.name, 
+        cardImage: cardObject.image, 
+        setName: cardObject.set, 
+        type: cardObject.type, 
+        colors: cardObject.color
+      }
+    ]);
 
   console.log(`this is the ${data}`);
   console.log(error);
