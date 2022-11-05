@@ -40,7 +40,7 @@ export async function insertData(cardObject) {
 }
 
 //DELETE DATA FROM DATABASE
-async function deleteData(id) {
+export async function deleteData(id) {
   const { error } = await db.from('cards').delete().eq('id', id);
 }
 

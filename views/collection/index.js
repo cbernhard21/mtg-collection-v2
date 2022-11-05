@@ -27,13 +27,26 @@ async function renderHtml() {
           <button class="btn delete">Delete From Collection</button>   
       </article>
     `;
-
     htmlCollectionContainer += cardHtml;
   });
+  
+  
+  //ADD DELETE FUNCTIONALITY TO DELETE BUTTONS
   resultsContainer.innerHTML = htmlCollectionContainer;
+  const deleteButtons = document.querySelectorAll('.delete');
+  deleteButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      let card = e.target.parentNode;
+      let cardId = card.getAttribute('data-card-id');
+      deleteData(cardId);
+    })
+  })
 }
 
-
 renderHtml();
+
+
+
 
 
