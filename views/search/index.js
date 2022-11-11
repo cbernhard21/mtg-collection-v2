@@ -49,8 +49,22 @@ if (window.localStorage.getItem('cardName')) {
     btn.addEventListener('click', (e) => {
       const p = document.createElement('p');
       p.innerHTML = 'Your Card Has Been Added To Your Collection';
+      p.classList.add('message');
       const container = e.target.parentNode;
       insertAfter(p, container.lastElementChild);
+
+      //STORE THIS CARD'S INFORMATION TO SEND TO DATABASE
+      let cardForDatabase = {
+        name: container.dataset.cardName,
+        image: container.dataset.cardImage,
+        set: container.dataset.cardSet,
+        type: container.dataset.cardType,
+        color: container.dataset.cardColor,
+      };
+
+      //SEND THAT INFORMATION TO THE DATABASE
+
+      insertData(cardForDatabase);
     });
   });
 }
@@ -98,7 +112,6 @@ async function renderResults(searchFunc, searchedCard, htmlContainer) {
   hideSpinner();
 
   //LOGIC FOR ADD TO COLLECTION BUTTON
-
   //SHOW THE USER A CONFIRMATION MESSAGE
   const addBtn = document.querySelectorAll('.add');
   addBtn.forEach((btn) => {
@@ -117,10 +130,7 @@ async function renderResults(searchFunc, searchedCard, htmlContainer) {
         type: container.dataset.cardType,
         color: container.dataset.cardColor,
       };
-      console.log(cardForDatabase);
-
       //SEND THAT INFORMATION TO THE DATABASE
-
       insertData(cardForDatabase);
     });
   });
@@ -149,6 +159,3 @@ function generateCardHtml(cardImage, item) {
   return html;
 }
 
-//<div class="button-container card-text">
-//<button class="btn add">Add To Collection</button>
-//</div>
