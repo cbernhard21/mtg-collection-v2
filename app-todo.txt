@@ -14,3 +14,7 @@ THINGS TO WORK ON FOR THE APP
     -add cards to database - DONE
     -retrieve cards from database - DONE
     -delete cards from database
+
+---MODAL
+    -add modal function to the delete button from collection
+    

@@ -2,8 +2,53 @@
     padding: 2rem;
 }
 
+#search-page {
+    position: relative;
+}
+
 /* FORM SYTLES */
 form {
     max-width: 400px;
 }
 
+.modal {
+    position: fixed;
+    top: 40%;
+    left: 40%;
+    z-index: 1000;
+    font-size: 2rem;
+    font-weight: 300;
+    background-color: var(--bg-nav);
+    border-radius: 10px;
+    padding: 2rem;
+    color: var(--white);
+}
+
+.modal p {
+    margin-bottom: 1rem;
+}
+
+.modal-card-name {
+    font-weight: 400;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+}
+
+.btn-yes {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.btn-yes:hover {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.btn-no:hover {
+    background-color: var(--light-black);
+}
