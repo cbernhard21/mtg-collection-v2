@@ -29,24 +29,25 @@ async function renderHtml() {
     `;
     htmlCollectionContainer += cardHtml;
   });
-  
-  
+
   //ADD DELETE FUNCTIONALITY TO DELETE BUTTONS
   resultsContainer.innerHTML = htmlCollectionContainer;
   const deleteButtons = document.querySelectorAll('.delete');
-  deleteButtons.forEach(button => {
+  deleteButtons.forEach((button) => {
     button.addEventListener('click', (e) => {
       e.preventDefault();
       let card = e.target.parentNode;
       let cardId = card.getAttribute('data-card-id');
       deleteData(cardId);
-    })
-  })
+
+      //CREATE AN ARE YOU SURE MODAL
+
+      //RELOAD THE PAGE AFTER A DELETE
+      setTimeout(() => {
+        window.location.reload();
+      }, 500);
+    });
+  });
 }
 
 renderHtml();
-
-
-
-
-

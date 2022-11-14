@@ -12,10 +12,6 @@ const searchBtn = document.querySelector('#search-btn');
 const searchForm = document.querySelector('#search-form');
 const searchInput = document.querySelector('#card-name');
 const modal = document.querySelector('.modal');
-const modalCardName = document.querySelector('.modal-card-name');
-const btnYes = document.querySelector('.btn-yes');
-const btnNo = document.querySelector('.btn-no');
-
 
 //FUNCTION TO HANDLE CONFIRMATION MODAL
 function showModal() {
@@ -49,23 +45,11 @@ if (window.localStorage.getItem('cardName')) {
   displayContainer.innerHTML += resultsHtml;
   hideSpinner();
 
-  //LOGIC FOR THE ADD TO COLLECTION BUTTON
-  //WILL CONVERT THIS TO A FUNCTION BECAUSE IT IS BEING USED IN MULITPLE PLACES
-  //LOGIC FOR ADD TO COLLECTION BUTTON
-
-  //STORE THAT PARTICULAR CARD'S INFORMATION
-
-  //SEND THAT INFORMATION TO THE DATABASE
-
   //SHOW THE USER A CONFIRMATION MESSAGE
   const addBtn = document.querySelectorAll('.add');
   addBtn.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-      const p = document.createElement('p');
-      p.innerHTML = 'Your Card Has Been Added To Your Collection';
-      p.classList.add('message');
       const container = e.target.parentNode;
-      insertAfter(p, container.lastElementChild);
 
       //STORE THIS CARD'S INFORMATION TO SEND TO DATABASE
       let cardForDatabase = {
@@ -76,9 +60,7 @@ if (window.localStorage.getItem('cardName')) {
         color: container.dataset.cardColor,
       };
 
-      //SEND THAT INFORMATION TO THE DATABASE
-
-      insertData(cardForDatabase);
+      modalFunc(container, cardForDatabase);
     });
   });
 }
@@ -130,11 +112,7 @@ async function renderResults(searchFunc, searchedCard, htmlContainer) {
   const addBtn = document.querySelectorAll('.add');
   addBtn.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-      // const p = document.createElement('p');
-      // p.innerHTML = 'Your Card Has Been Added To Your Collection';
-      // p.classList.add('message');
       const container = e.target.parentNode;
-      // insertAfter(p, container.lastElementChild);
 
       //STORE THIS CARD'S INFORMATION TO SEND TO DATABASE
       let cardForDatabase = {
@@ -144,25 +122,7 @@ async function renderResults(searchFunc, searchedCard, htmlContainer) {
         type: container.dataset.cardType,
         color: container.dataset.cardColor,
       };
-
-      modalCardName.textContent = container.dataset.cardName;
-
-
-      // SHOW CONFIRMATION MODAL
-      showModal();
-      //SEND THAT INFORMATION TO THE DATABASE IF YES IS PRESS ON THE MODAL
-      btnYes.addEventListener('click', () => {
-        insertData(cardForDatabase);
-        modal.innerHTML = `<p>Your Card Was Added To Your Collection</p>`;
-        setTimeout(function() {
-          hideModal();
-        }, 2000)
-        
-      })
-      btnNo.addEventListener('click', () => {
-        hideModal();
-      })
-      
+      modalFunc(container, cardForDatabase);
     });
   });
 }
@@ -190,3 +150,30 @@ function generateCardHtml(cardImage, item) {
   return html;
 }
 
+//FUNCTION FOR MODAL TO REUSE THROUGHOUT THIS SCRIPT
+function modalFunc(container, cardInfo) {
+  const modalCardName = document.querySelector('.modal-card-name');
+  let modalText = document.querySelector('.modal-text');
+  const modalButtons = document.querySelector('.modal-buttons-container');
+  const btnYes = document.querySelector('.btn-yes');
+  const btnNo = document.querySelector('.btn-no');
+
+  //MODAL FUNCITIONALITY
+  modalCardName.textContent = container.dataset.cardName;
+  // SHOW CONFIRMATION MODAL
+  showModal();
+  //SEND THAT INFORMATION TO THE DATABASE IF YES IS PRESS ON THE MODAL
+  btnYes.addEventListener('click', () => {
+    insertData(cardInfo);
+    modalText.innerHTML = `<p>Your Card Was Added To Your Collection</p>`;
+    modalButtons.classList.add('hidden');
+    setTimeout(function () {
+      hideModal();
+      modalButtons.classList.remove('hidden');
+      modalText.innerHTML = `<p>Are you sure you want to add <span class="modal-card-name"></span> to your collection</p>`;
+    }, 2000);
+  });
+  btnNo.addEventListener('click', () => {
+    hideModal();
+  });
+}

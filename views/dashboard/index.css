@@ -110,3 +110,12 @@ section {
 .results-link:hover {
   background-color: var(--bg-nav);
 }
+
+/* COLORS PIE CHART BOX */
+.colors-chart {
+  width: 400px;
+}
+
+#colors-chart {
+  width: 400px;
+}

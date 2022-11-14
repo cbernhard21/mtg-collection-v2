@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../../css/main.css" type="text/css" />
     <link rel="stylesheet" href="index.css" type="text/css" />
     <script src="https://kit.fontawesome.com/af77942d5c.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <title>MTG Collection</title>
   </head>
   <body>
@@ -42,7 +44,7 @@
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam perspiciatis ut sapiente minus placeat suscipit sint nesciunt, voluptatibus alias dolores! Obcaecati veritatis quaerat
               laborum! Voluptates quis sed ullam hic obcaecati, consequuntur assumenda? Sapiente obcaecati, est voluptatibus, tempora illo a tenetur temporibus excepturi repudiandae quos provident qui
               voluptates. Fugit porro inventore quo, obcaecati cumque quibusdam quae, nisi, voluptatum natus nemo velit! Rerum iusto dolores reiciendis quo sequi laboriosam, provident quasi autem
-              maxime totam dolorum optio nihil nam laudantium enim ipsa eos eum odio velit debitis iste accusantium illo facere. 
+              maxime totam dolorum optio nihil nam laudantium enim ipsa eos eum odio velit debitis iste accusantium illo facere.
             </p>
           </section>
 
@@ -52,17 +54,17 @@
               <input class="input" id="card-name" type="text" placeholder="Enter Card Name" />
               <i class="fa-solid fa-magnifying-glass search-submit" id="search-btn"></i>
               <!-- <button class="search-submit" id="search-btn">Search</button> -->
-
             </form>
-
 
             <!-- CONTAINER FOR SEARCH RESULTS -->
             <div id="results-container" class="results-container"></div>
-            
           </section>
 
-          <section class="stats-box box-1"><h2 class="sub-title">Stats</h2></section>
-          <section class="stats-box box-2"><h2 class="sub-title">Stats</h2></section>
+          <section class="stats-box box-1">
+            <h2 class="sub-title">Color Card Count</h2>
+            <canvas class="colors-chart" id="colors-chart" width="400"></canvas>
+          </section>
+          <section class="stats-box box-2"><h2 class="sub-title">Types</h2></section>
           <section class="stats-box box-3"><h2 class="sub-title">Stats</h2></section>
         </div>
       </main>
