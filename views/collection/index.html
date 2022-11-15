@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="index.css" type="text/css" />
     <title>MTG Collection</title>
   </head>
-  <body>
+  <body id="collection">
+    <!-- CONFIRMATION MODAL -->
+    <div class="modal hidden"></div>
     <!-- GRID FOR THE LAYOUT OF THE PAGE -->
     <div class="page-grid">
       <header class="header">
@@ -36,11 +38,7 @@
 
       <main class="main">
         <h2 class="sub-title">My Collection</h2>
-        <h3>Collection information coming soon</h3>
-
         <div class="results-grid" id="results-container"></div>
-
-
         <!-- <div class="loader">
           <div class="face">
             <div class="circle"></div>
@@ -50,11 +48,6 @@
           </div>
         </div> -->
       </main>
-
-      <!-- <aside class="aside">
-        <h2>Aside</h2>
-      </aside> -->
-
       <script src="../../js/app.js" type="module"></script>
       <script src="index.js" type="module"></script>
     </div>

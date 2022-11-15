@@ -16,10 +16,21 @@ const modal = document.querySelector('.modal');
 //FUNCTION TO HANDLE CONFIRMATION MODAL
 function showModal() {
   modal.classList.remove('hidden');
+  const modalHtml = `
+    <p class="modal-text">Are you sure you want to add <span class="modal-card-name"></span> to your collection</p>
+    <div class="modal-buttons-container">
+      <div class="modal-buttons">
+        <button class="btn btn-yes">Yes</button>
+        <button class="btn btn-no">No</button>
+      </div>
+    </div>
+  `;
+  modal.innerHTML = modalHtml;
 }
 
 function hideModal() {
   modal.classList.add('hidden');
+  modal.innerHTML = '';
 }
 
 //WHEN PAGE LOADS FROM DASHBOARD 'SEE ALL RESULTS' BUTTON
@@ -113,7 +124,6 @@ async function renderResults(searchFunc, searchedCard, htmlContainer) {
   addBtn.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       const container = e.target.parentNode;
-
       //STORE THIS CARD'S INFORMATION TO SEND TO DATABASE
       let cardForDatabase = {
         name: container.dataset.cardName,
@@ -122,6 +132,7 @@ async function renderResults(searchFunc, searchedCard, htmlContainer) {
         type: container.dataset.cardType,
         color: container.dataset.cardColor,
       };
+      console.log(cardForDatabase);
       modalFunc(container, cardForDatabase);
     });
   });
@@ -152,25 +163,24 @@ function generateCardHtml(cardImage, item) {
 
 //FUNCTION FOR MODAL TO REUSE THROUGHOUT THIS SCRIPT
 function modalFunc(container, cardInfo) {
+  //MODAL FUNCITIONALITY
+  // SHOW CONFIRMATION MODAL
+  showModal();
+  const btnYes = document.querySelector('.btn-yes');
+  const btnNo = document.querySelector('.btn-no');
   const modalCardName = document.querySelector('.modal-card-name');
   let modalText = document.querySelector('.modal-text');
   const modalButtons = document.querySelector('.modal-buttons-container');
-  const btnYes = document.querySelector('.btn-yes');
-  const btnNo = document.querySelector('.btn-no');
 
-  //MODAL FUNCITIONALITY
   modalCardName.textContent = container.dataset.cardName;
-  // SHOW CONFIRMATION MODAL
-  showModal();
+
   //SEND THAT INFORMATION TO THE DATABASE IF YES IS PRESS ON THE MODAL
   btnYes.addEventListener('click', () => {
     insertData(cardInfo);
-    modalText.innerHTML = `<p>Your Card Was Added To Your Collection</p>`;
+    modalText.innerHTML = `<p><span class="modal-card-name">${container.dataset.cardName}</span> Was Added To Your Collection</p>`;
     modalButtons.classList.add('hidden');
     setTimeout(function () {
       hideModal();
-      modalButtons.classList.remove('hidden');
-      modalText.innerHTML = `<p>Are you sure you want to add <span class="modal-card-name"></span> to your collection</p>`;
     }, 2000);
   });
   btnNo.addEventListener('click', () => {

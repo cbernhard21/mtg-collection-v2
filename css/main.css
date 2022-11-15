@@ -18,7 +18,6 @@ VARIABLES
   --large-screen: 1025px;
   --medium-screen: 770px;
   --small-screen: 450px;
-
 }
 
 /***************** 
@@ -35,6 +34,21 @@ html {
   font-size: 62.5%;
   background-color: var(--bg-page);
   font-family: var(--page-font);
+  color: var(--black);
+  overflow-y: scroll;
+}
+
+html::-webkit-scrollbar {
+  width: 15px;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: var(--black);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--bg-nav);
+  border-radius: 20px;
 }
 
 h1,
@@ -73,13 +87,12 @@ a.btn,
   background-color: var(--black);
   color: var(--white);
   cursor: pointer;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .btn:hover {
   background-color: var(--bg-nav);
 }
-
 
 .sub-title {
   font-size: 3.2rem;
@@ -180,17 +193,12 @@ LOADING SPINNER STYLES FOR ALL PAGES
   height: 1em;
   background-color: currentColor;
   border-radius: 50%;
-  box-shadow: 0 0 2em,
-              0 0 4em,
-              0 0 6em,
-              0 0 8em,
-              0 0 10em,
-              0 0 0 0.5em rgba(255, 255, 0, 0.1);
+  box-shadow: 0 0 2em, 0 0 4em, 0 0 6em, 0 0 8em, 0 0 10em, 0 0 0 0.5em rgba(255, 255, 0, 0.1);
 }
 
 @keyframes animate {
   to {
-      transform: rotate(1turn);
+    transform: rotate(1turn);
   }
 }
 
@@ -205,6 +213,13 @@ SITE LAYOUT
   grid-template-rows: min-content 1fr;
   min-height: 100vh;
   position: relative;
+  margin-left: 15rem;
+}
+
+@media screen and (max-width: 770px) {
+  .page-grid {
+    margin-left: 0;
+  }
 }
 
 .header {
@@ -273,7 +288,7 @@ COMPONENT STYLES
 
 /* SMALL SCREENS */
 @media screen and (max-width: 480px) {
-  .header h1  {
+  .header h1 {
     font-size: 2.5rem;
     font-weight: 400;
   }
@@ -288,6 +303,10 @@ COMPONENT STYLES
   padding: 1rem;
   background-color: var(--bg-nav);
   height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15rem;
 }
 
 @media screen and (max-width: 770px) {
@@ -326,7 +345,7 @@ figure {
   display: inline-block;
   font-size: 1.6rem;
   color: var(--white);
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .nav-list {
@@ -337,13 +356,55 @@ figure {
 
 .nav-item {
   border-bottom: 2px solid transparent;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   padding-left: 1rem;
   width: 100%;
 }
 
 .nav-item:hover {
   border-bottom: 2px solid black;
+}
+
+/* MODAL STYLES */
+.modal {
+  position: fixed;
+  top: 40%;
+  left: 40%;
+  z-index: 1000;
+  font-size: 2rem;
+  font-weight: 300;
+  background-color: var(--bg-nav);
+  border-radius: 10px;
+  padding: 2rem;
+  color: var(--white);
+}
+
+.modal p {
+  margin-bottom: 1rem;
+}
+
+.modal-card-name {
+  font-weight: 400;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.btn-yes {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.btn-yes:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.btn-no:hover {
+  background-color: var(--light-black);
 }
 
 /************************
@@ -380,7 +441,6 @@ form {
   background-color: var(--bg-nav);
 }
 
-
 /* STYLES FOR DISPLAYING MTG CARDS FROM THE DATABASE */
 .results-grid {
   display: grid;
@@ -390,22 +450,22 @@ form {
 
 @media screen and (max-width: 1024px) {
   .results-grid {
-      grid-template-columns: repeat(auto-fit, minmax(10px, 225px));
+    grid-template-columns: repeat(auto-fit, minmax(10px, 225px));
   }
 }
 
 @media screen and (max-width: 770px) {
   .results-grid {
-      grid-template-columns: repeat(auto-fit, minmax(10px, 175px));
+    grid-template-columns: repeat(auto-fit, minmax(10px, 175px));
   }
 }
 
 @media screen and (max-width: 480px) {
   .results-grid {
-      display: flex;
-      flex-direction: column;
-      width: 90%;
-      margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
   }
 }
 
@@ -425,11 +485,11 @@ form {
 
 .card-name {
   font-size: 1.4rem;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .card-text p {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   font-size: 1.4rem;
 }
 
@@ -445,14 +505,10 @@ form {
 .message {
   background-color: rgb(172, 9, 9);
   color: var(--white);
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 .card-info-container button {
   display: block;
   margin: 0 auto;
 }
-
-
-
-

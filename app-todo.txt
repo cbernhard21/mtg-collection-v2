@@ -5,16 +5,17 @@ THINGS TO WORK ON FOR THE APP
 
 ---DASHBOARD PAGE
     -work on the stats and charts sections
+    -WORK ON RESPONSIVENESS OF THE GRID!!!!!
 
 ---SEARCH PAGE
-    --finish confirm message when add to database
+    --finish confirm message when add to database - DONE
 
 ---MY COLLECTION PAGE
     -connect to database - DONE
     -add cards to database - DONE
     -retrieve cards from database - DONE
-    -delete cards from database
+    -delete cards from database - DONE
 
 ---MODAL
-    -add modal function to the delete button from collection
+    -add modal function to the delete button from collection - DONE
     

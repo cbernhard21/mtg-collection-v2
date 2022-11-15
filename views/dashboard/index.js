@@ -74,7 +74,35 @@ async function renderCard(searchFunc, searchedCard, htmlContainer) {
 
 //COLOR CHART LOGIC OR PIE CHART
 
-function createPieChart() {
+async function createPieChart() {
+  const addData = await loadData();
+  let whiteCount = 0;
+  let blueCount = 0;
+  let redCount = 0;
+  let blackCount = 0;
+  let greenCount = 0;
+  let multiColorCount = 0;
+  let colorlessCount = 0;
+
+  //FIGURE OUT HOW MANY COLORS IS IN COLLECTION TO DISPLAY IN PIE CHART
+  addData.forEach((item) => {
+    if (item.colors === 'undefined') {
+      colorlessCount++;
+    } else if (item.colors.length > 1) {
+      multiColorCount++;
+    } else if (item.colors == 'W') {
+      whiteCount++;
+    } else if (item.colors == 'U') {
+      blueCount++;
+    } else if (item.colors == 'R') {
+      redCount++;
+    } else if (item.colors == 'B') {
+      blackCount++;
+    } else if (item.colors == 'G') {
+      greenCount++;
+    }
+  });
+
   const labels = ['White', 'Blue', 'Red', 'Black', 'Green', 'Multi-Color', 'Colorless'];
 
   const data = {
@@ -92,7 +120,7 @@ function createPieChart() {
           '#A8B8BA', //COLORLESS
         ],
         borderColor: '#444444',
-        data: [0, 10, 5, 2, 20, 30, 45],
+        data: [whiteCount, blueCount, redCount, blackCount, greenCount, multiColorCount, colorlessCount],
       },
     ],
   };
@@ -104,5 +132,40 @@ function createPieChart() {
   const colorChart = new Chart(document.querySelector('.colors-chart'), config);
 }
 
+function createBarChart() {
+  console.log('created bar chart for mtg types');
+  const barChart = document.querySelector('.bar-chart').getContext('2d');
+  const typesChart = new Chart(barChart, {
+    type: 'bar',
+    data: {
+      labels: ['Creatures', 'Enchantments', 'Artifacts', 'Planeswalkers', 'Instants', 'Sorcery', 'Land'],
+      datasets: [
+        {
+          label: '# of Cards For That Type',
+          data: [12, 19, 3, 5, 2, 3, 19],
+          backgroundColor: [
+            '#ECE6D7', //WHITE
+            '#007CBE', //BLUE
+            '#E23F26', //RED
+            '#231F20', //BLACK
+            '#037A43', //GREEN
+            '#D7BC7E', //MUTI-COLOR
+            '#A8B8BA', //COLORLESS
+          ],
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+}
+
 //RUN ALL THESE FUNCTION ON PAGE LOAD
 createPieChart();
+createBarChart();
