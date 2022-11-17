@@ -1,11 +1,12 @@
 THINGS TO WORK ON FOR THE APP
 
 --ENTIRE APP
-    -work on responsiveness
+    -work on responsiveness - getting there
+    -ADD A FOOTER!!!
 
 ---DASHBOARD PAGE
-    -work on the stats and charts sections
-    -WORK ON RESPONSIVENESS OF THE GRID!!!!!
+    -work on the stats and charts sections - DONE
+    -WORK ON RESPONSIVENESS OF THE GRID!!!!! - getting there
 
 ---SEARCH PAGE
     --finish confirm message when add to database - DONE

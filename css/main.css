@@ -450,7 +450,7 @@ form {
 
 @media screen and (max-width: 1024px) {
   .results-grid {
-    grid-template-columns: repeat(auto-fit, minmax(10px, 225px));
+    grid-template-columns: repeat(auto-fit, minmax(10px, 170px));
   }
 }
 
@@ -473,6 +473,14 @@ form {
   background-color: var(--white);
   border-radius: 5px;
   padding-bottom: 2rem;
+  font-size: 1.4rem;
+}
+
+@media screen and (max-width: 1025px) {
+  .card-info-container,
+  .card-info-container h2 {
+    font-size: 1.2rem;
+  }
 }
 
 .card-image {
@@ -484,13 +492,13 @@ form {
 }
 
 .card-name {
-  font-size: 1.4rem;
+  /* font-size: 1.4rem; */
   margin-bottom: 0.5rem;
 }
 
 .card-text p {
   margin-bottom: 0.5rem;
-  font-size: 1.4rem;
+  /* font-size: 1.4rem; */
 }
 
 .button-container {
@@ -511,4 +519,10 @@ form {
 .card-info-container button {
   display: block;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 1025px) {
+  .card-info-container button {
+    font-size: 1.2rem;
+  }
 }
